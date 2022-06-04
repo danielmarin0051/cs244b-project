@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package dkg_service_package;
+
+service DKGService {
+    rpc SendShare(SendShareRequest) returns (SendShareResponse) {}
+}
+
+message SendShareRequest {
+    uint32 index = 1;
+    uint32 sessionId = 2;
+    string share = 3;
+    string hmacTag = 4;
+}
+
+message SendShareResponse {}

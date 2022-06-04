@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package aggregator_package;
+
+service Aggregator {
+    rpc RequestSignature(SignatureRequest) returns (SignatureResponse) {}
+}
+
+message SignatureRequest {
+    uint32 aggregationId = 1;
+    string topic = 2;
+    string hmacTag = 3;
+}
+
+message SignatureResponse {
+    string message = 1;
+    string signature = 2;
+}
